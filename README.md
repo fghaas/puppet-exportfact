@@ -1,11 +1,11 @@
-# `exportfact` -- Publish and share facts between nodes
+# `exportfact`: Publish and share facts between nodes
 
 This module enables nodes to publish information about themselves
 using custom facts, which are then exported to other nodes.
 
 ## Example
 
-For example, suppose you have a node, `alice`, that you configure
+Suppose you have a node, `alice`, that you configure
 as an HTTP proxy server. And you want all your other nodes to use
 that node's IP address as their HTTP proxy.
 

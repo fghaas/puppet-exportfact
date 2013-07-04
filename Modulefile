@@ -1,0 +1,8 @@
+name 'hastexo-exportfact'
+version '0.1.0'
+author 'hastexo'
+license 'Apache Software License 2.0'
+summary 'Publish and share facts between nodes'
+description 'Enables nodes to export facts about themselves, and other nodes to import and use these facts.'
+dependency 'puppetlabs/stdlib'
+project_page 'http://github.com/fghaas/puppet-exportfact'

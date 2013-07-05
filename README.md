@@ -12,27 +12,32 @@ that node's IP address as their HTTP proxy.
 First, you could make sure that your proxy server sets an exported
 fact, let's call it `http_proxy_host`:
 
-    node alice {
-      include exportfact
+```puppet
+node alice {
+  include exportfact
 
-      exportfact::export { 'http_proxy_host':
-        value => $hostname,
-        category => "http_proxy"
-      }
-    }
+  exportfact::export { 'http_proxy_host':
+    value => $hostname,
+    category => "http_proxy"
+  }
+}
+```
 
 The `category` is a logical grouping of facts.
 
 Then, say every other node should know about the facts in the `http_proxy`
 category:
 
-    include exportfact
+```puppet
+include exportfact
 
-    exportfact::import { 'http_proxy': }
+exportfact::import { 'http_proxy': }
+```
 
 Once the configuration has been applied on both the exporting and the
 importing nodes, `facter -p http_proxy` on the importing node will
-produce the `$hostname` of the exporting node.
+produce the `$hostname` of the exporting node
+(in the example, `alice`).
 
 Of course, you might also export other information about the service.
 `$ipaddress` or `$fqdn` come to mind, for example.
@@ -59,8 +64,10 @@ This distinction is deliberate.
 As this module uses exported resources, it only works when
 Stored Configuration is enabled:
 
-    [master]
-    storeconfigs = true
+```ini
+[master]
+storeconfigs = true
+```
 
 See the Puppet (and PuppetDB) documentation for more information about
 Stored Configuration.

@@ -1,5 +1,5 @@
 name 'hastexo-exportfact'
-version '0.1.0'
+version '0.1.1'
 author 'hastexo'
 license 'Apache Software License 2.0'
 summary 'Publish and share facts between nodes'

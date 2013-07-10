@@ -5,7 +5,11 @@ define exportfact::export (
 
   $categoryfile = "$exportfact::factsdir/$category.txt"
 
-  ensure_resource('file', "$categoryfile")
+  ensure_resource('file',
+                  "$categoryfile",
+                  { owner => "root",
+                    group => "root",
+                    mode => "0640" }) 
 
   @@augeas { "fact_$name":
     context => "/files$categoryfile",
